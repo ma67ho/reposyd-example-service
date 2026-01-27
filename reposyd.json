@@ -1,0 +1,8 @@
+{
+  "logging": {
+    "level": "debug"
+  },
+  "repository": {
+    "url": "sqlite:C:\\Testrange\\Development\\reposyd-example-service\\database?database=reposyd.sqlite"
+  }
+}

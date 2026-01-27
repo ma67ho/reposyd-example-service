@@ -1,0 +1,33 @@
+# @name login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+@jwtoken = {{login.response.body.token}}
+
+#
+# Sends a request creating a new issue
+#
+# @name issuepost
+POST http://localhost:3000/OData/Issues
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+{
+    "Title": "post-issue"
+}
+
+###
+@issueUuid= {{issuepost.response.body.Uuid}}
+#
+# Get the issue created by the previous request
+GET http://localhost:3000/OData/Issues/{{issueUuid}}
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+

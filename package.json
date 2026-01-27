@@ -1,0 +1,23 @@
+{
+  "name": "@reposyd/example-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.9",
+    "dotenv": "^17.2.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@reposyd/service-core": "^4.0.0",
+    "@types/lodash": "^4.17.23",
+    "commander": "^14.0.2",
+    "lodash": "^4.17.21"
+  }
+}

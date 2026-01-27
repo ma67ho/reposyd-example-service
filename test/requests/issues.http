@@ -1,0 +1,53 @@
+# @name login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+
+@jwtoken = {{login.response.body.token}}
+
+###
+#
+# Sends a request creating a new issue
+#
+POST http://localhost:3000/OData/Issues
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+{
+    "Title": "Issue 02"
+}
+
+###
+#
+# Requests all issues
+#
+GET http://localhost:3000/OData/Issues
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+###
+# Send a request to get all issues matching the filter condition
+GET http://localhost:3000/OData/Issues?$filter=Title eq 'Issue 02'
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+###
+GET http://localhost:3000/OData/Issues/610588e1-d093-4350-8370-a90c38b96b70
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+###
+PATCH http://localhost:3000/OData/Issues/610588e1-d093-4350-8370-a90c38b96b70
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+{
+    "Title": "Issue II"
+}
+

@@ -1,0 +1,27 @@
+# @name login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+
+@jwtoken = {{login.response.body.token}}
+
+###
+# Request all issues including work log items
+#
+GET http://localhost:3000/OData/Issues?$expand=WorkLog
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+###
+# Request all issues including work log title only
+#
+GET http://localhost:3000/OData/Issues?$expand=WorkLog($select=Title)
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+

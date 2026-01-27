@@ -1,0 +1,47 @@
+# @name login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+@jwtoken = {{login.response.body.token}}
+
+###
+#
+# Sends a request creating a new issue
+# @name issue
+POST http://localhost:3000/OData/Issues
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+{
+    "Title": "Issue with Work Log"
+}
+
+###
+@issueUuid = {{issue.response.body.Uuid}}
+
+###
+
+POST http://localhost:3000/OData/WorkLogs
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+{
+    "IssueUuid": "{{issueUuid}}",
+    "Title": "Work Log 1"
+}
+
+###
+GET http://localhost:3000/OData/WorkLogs?$expand=Issue
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+###
+GET http://localhost:3000/OData/WorkLogs?$expand=Issue($select=Title,Uuid)
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
