@@ -12,6 +12,16 @@ Content-Type: application/json
 @jwtoken = {{login.response.body.token}}
 
 ###
-GET http://localhost:3000/OData/Issues
+GET http://localhost:3000/OData/Zeitperiodes
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+###
+GET http://localhost:3000/OData/Vorgabestundens?$filter=Von ge 'Datum' and Bis le 'Datum'
+Authorization: Bearer {{jwtoken}}
+Content-Type: application/json
+
+###
+GET http://localhost:3000/OData/Buchungs
 Authorization: Bearer {{jwtoken}}
 Content-Type: application/json

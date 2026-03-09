@@ -4,9 +4,9 @@
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
-    // "module": "ES2015",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es6",
     "sourceMap": true,
     "strict": false
   },

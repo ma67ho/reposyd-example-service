@@ -1,2 +1,3 @@
-export * as Issue from './Issue'
-export * as WorkLog from './WorkLog'
+export * as Buchung from './Buchung'
+export * as Vorgabestunden from './Vorgabestunden'
+export * as Zeitperiode from './Zeitperiode'
