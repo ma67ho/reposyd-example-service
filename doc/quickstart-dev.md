@@ -25,6 +25,12 @@
    > [!TIP]
    > If this fails try step 4 again
 10. Set the path to the `reposyd.json` in the `.env` file
-11. `yarn start`
+11. `yarn start project add Project0 --url 'sqlite:<your-database-path>?database=reposyd.sqlite'`
+    > [!NOTE]
+    > Without a project, you can't even enter the settings in the Web UI
+12. `yarn start project status Project0 open --url 'sqlite:<your-database-path>?database=reposyd.sqlite'`
+    > [!NOTE]
+    > To be able to enter the project and the rest of the Web UI
+13. `yarn start`
     > [!NOTE]
     > Service is ready now
